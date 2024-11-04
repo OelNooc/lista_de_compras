@@ -41,6 +41,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.Observer
@@ -96,7 +97,7 @@ fun MainScreen(viewModel: ProductoViewModel = viewModel()) {
     Scaffold(
         floatingActionButton = {
             FloatingActionButton(onClick = { mostrarDialogoAgregar = true }) {
-                Text("+ Añadir")
+                Text(text = stringResource(id = R.string.add))
             }
         }
     ) { innerPadding ->
@@ -113,8 +114,8 @@ fun MainScreen(viewModel: ProductoViewModel = viewModel()) {
                         verticalArrangement = Arrangement.Center,
                         modifier = Modifier.padding(16.dp)
                     ) {
-                        Text("No hay elementos para mostrar")
-                        Text("Presiona el botón + Añadir para agregar productos a la lista")
+                        Text(text = stringResource(id = R.string.nothing_to_show))
+                        Text(text = stringResource(id = R.string.press_add))
                     }
                 }
             } else {
@@ -213,10 +214,9 @@ fun AgregarProductoDialog(
 
     AlertDialog(
         onDismissRequest = { onCancelar() },
-        title = { Text("Agregar producto") },
+        title = { Text(text = stringResource(id = R.string.add_product)) },
         text = {
             Column {
-                // Imagen del carrito
                 Image(
                     painter = painterResource(id = R.drawable.shopping_cart),
                     contentDescription = "Carrito",
@@ -229,7 +229,7 @@ fun AgregarProductoDialog(
                 TextField(
                     value = nombreNuevo,
                     onValueChange = { nombreNuevo = it },
-                    label = { Text("Nombre del producto") }
+                    label = { Text(text = stringResource(id = R.string.product_name)) }
                 )
             }
         },
@@ -237,12 +237,12 @@ fun AgregarProductoDialog(
             Button(onClick = {
                 onGuardar(nombreNuevo)
             }) {
-                Text("Guardar")
+                Text(text = stringResource(id = R.string.save))
             }
         },
         dismissButton = {
             Button(onClick = { onCancelar() }) {
-                Text("Cancelar")
+                Text(text = stringResource(id = R.string.cancel))
             }
         }
     )
@@ -258,24 +258,24 @@ fun EditarProductoDialog(
 
     AlertDialog(
         onDismissRequest = { onCancelar() },
-        title = { Text("Editar producto") },
+        title = { Text(text = stringResource(id = R.string.edit_product)) },
         text = {
             Column {
                 TextField(
                     value = nombreNuevo,
                     onValueChange = { nombreNuevo = it },
-                    label = { Text("Nombre del producto") }
+                    label = { Text(text = stringResource(id = R.string.product_name)) }
                 )
             }
         },
         confirmButton = {
             Button(onClick = { onGuardar(nombreNuevo) }) {
-                Text("Guardar")
+                Text(text = stringResource(id = R.string.save))
             }
         },
         dismissButton = {
             Button(onClick = { onCancelar() }) {
-                Text("Cancelar")
+                Text(text = stringResource(id = R.string.cancel))
             }
         }
     )

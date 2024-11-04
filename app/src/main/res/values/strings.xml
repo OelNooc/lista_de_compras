@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">ListaDeCompras</string>
+    <string name="nothing_to_show">No hay elementos para mostrar</string>
+    <string name="press_add">Presiona el botón + Añadir para agregar productos a la lista</string>
+    <string name="add_product">Agregar producto</string>
+    <string name="product_name">Nombre del producto</string>
+    <string name="save">Guardar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="edit_product">Editar producto</string>
+    <string name="add">+ Añadir</string>
 </resources>
